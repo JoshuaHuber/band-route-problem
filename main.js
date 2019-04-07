@@ -12,28 +12,43 @@ var points500 = [{"x":780,"y":560},{"x":631,"y":173},{"x":452,"y":237},{"x":789,
 ctx.strokeStyle = "#0000FF";
 
 
-// ctx.moveTo(10,10);
-// ctx.lineTo(200,100);
-// ctx.stroke();
-// ctx.fillRect(10,10,5,5);
-// ctx.fillRect(200,100,5,5);
+
+
+
+
+var totalDistance = 0;
+
 
 
 function addCities(cities) {
   cities.forEach(function(city, i) {
-    drawCity(city)
-    drawLineBetweenCities(city, cities[i + 1])
+    drawCity(city);
+    drawLineBetweenCities(city, cities[i + 1]);
+    totalDistance = totalDistance + calcDistanceBetweenTwoCities(city, cities[i + 1]);
   })
+  console.log('totalDistance', totalDistance)
 }
 
 
 function drawLineBetweenCities(city1, city2){
+  if(!city2){return}
   ctx.moveTo(city1.x,city1.y);
   ctx.lineTo(city2.x,city2.y);
   ctx.stroke();
 }
 function drawCity(city){
   ctx.fillRect(city.x,city.y,3,3);
+}
+
+function calcDistanceBetweenTwoCities(city1, city2){
+  if(!city2){return 0}
+
+  var a = city1.x - city2.x;
+  var b = city1.y - city2.y;
+  
+  var c = Math.sqrt( a*a + b*b );
+  
+  return c;
 }
 
 addCities(ponts3);
