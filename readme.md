@@ -27,4 +27,6 @@ If you have questions on the challenge, please contact Jared Sartin: jared@leftf
 
 # Candidate Notes:
 
-### Fill in comments, external tool usage, and time tracking
+-Please use git commits as a general guide for time line... I did take a 20 min brake to eat food.
+-I did not use any external tools.
+-TODO fix brute force algorithm...  Ran out of time.
